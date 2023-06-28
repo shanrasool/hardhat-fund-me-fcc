@@ -6,9 +6,9 @@ require("hardhat-gas-reporter")
 require("solidity-coverage")
 require("hardhat-deploy")
 
-const RINKEBY_RPC_URL =
-    process.env.RINKEBY_RPC_URL ||
-    "https://eth-mainnet.alchemyapi.io/v2/your-api-key"
+const GOERLI_RPC_URL =
+    process.env.GOERLI_RPC_URL ||
+    "https://eth-goerli.alchemyapi.io/v2/your-api-key"
 
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || ""
 const PRIVATE_KEY =
@@ -24,11 +24,12 @@ module.exports = {
         hardhat: {
             chainId: 31337,
         },
-        rinkeby: {
-            url: RINKEBY_RPC_URL,
-            accounts: [PRIVATE_KEY],
-            chainId: 4,
-            blockConfirmations: 6,
+        goerli: {
+            url: GOERLI_RPC_URL,
+            accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
+
+            saveDeployments: true,
+            chainId: 5,
         },
     },
     gasReporter: {

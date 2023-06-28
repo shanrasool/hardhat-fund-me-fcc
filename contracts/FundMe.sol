@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+// Author : Shan Rasool
 pragma solidity ^0.8.4;
 
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
@@ -13,7 +14,7 @@ contract FundMe {
     address[] public s_funders;
 
     address public immutable i_owner;
-    uint256 public constant MINIMUM_MONEY = 50 * 10**18;
+    uint256 public constant MINIMUM_MONEY = 50 * 10 ** 18;
 
     AggregatorV3Interface public s_priceFeed;
 
